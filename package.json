@@ -1,0 +1,24 @@
+{
+  "name": "psp-remote-controller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "get-analog-stick": "node utility/getAnalogStickPosition.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@nut-tree/nut-js": "^3.1.1",
+    "@nut-tree/template-matcher": "^2.0.0",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "description": ""
+}

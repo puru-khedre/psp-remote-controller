@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <title>PPSSPP Controller</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="top-group">
+      <button
+        id="left-trigger"
+        ontouchstart="holdKey(event, 'holdLeftTrigger')"
+        ontouchend="releaseKey(event, 'releaseLeftTrigger')"
+      >
+        <span>L</span>
+      </button>
+      <button
+        id="fullscreen-toggle"
+        data-toggle-mode="off"
+        onclick="toggleFullscreen(event)"
+      >
+        Toggle Fullscreen mode
+      </button>
+      <button
+        id="right-trigger"
+        ontouchstart="holdKey(event, 'holdRightTrigger')"
+        ontouchend="releaseKey(event, 'releaseRightTrigger')"
+      >
+        <span>R</span>
+      </button>
+    </div>
+
+    <div id="face-buttons-container">
+      <!-- ---------------------- -->
+      <button disabled="disabled" class="hidden"></button>
+      <button
+        ontouchstart="holdKey(event, 'holdTriangle')"
+        ontouchend="releaseKey(event, 'releaseTriangle')"
+        id="triangle"
+      >
+        <span class="material-symbols-rounded"> change_history </span>
+      </button>
+      <button disabled="disabled" class="hidden"></button>
+
+      <!-- ---------------------- -->
+
+      <button
+        ontouchstart="holdKey(event, 'holdSquare')"
+        ontouchend="releaseKey(event, 'releaseSquare')"
+        id="square"
+      >
+        <span class="material-symbols-rounded"> check_box_outline_blank </span>
+      </button>
+      <button disabled="disabled" class="hidden"></button>
+      <button
+        ontouchstart="holdKey(event, 'holdCircle')"
+        ontouchend="releaseKey(event, 'releaseCircle')"
+        id="circle"
+      >
+        <span class="material-symbols-rounded"> radio_button_unchecked </span>
+      </button>
+
+      <!-- ---------------------- -->
+
+      <button disabled="disabled" class="hidden"></button>
+      <button
+        ontouchstart="holdKey(event, 'holdCross')"
+        ontouchend="releaseKey(event, 'releaseCross')"
+        id="cross"
+      >
+        <span class="material-symbols-rounded"> close </span>
+      </button>
+      <button disabled="disabled" class="hidden"></button>
+    </div>
+    <div id="analog-stick"><div id="stick"></div></div>
+
+    <script src="/main.js"></script>
+    <!-- <script src="/new.js"></script> -->
+  </body>
+</html>
+
+<!-- 
+  onmousedown="holdKey(event, 'holdRightTrigger')"
+  onmouseup="releaseKey(event, 'releaseRightTrigger')"
+  onclick="pressKey(event, 'pressCross')"
+ -->
