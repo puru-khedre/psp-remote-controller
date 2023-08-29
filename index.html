@@ -83,7 +83,57 @@
       </button>
       <button disabled="disabled" class="hidden"></button>
     </div>
+
     <div id="analog-stick"><div id="stick"></div></div>
+
+    <div id="d-pad">
+      <div>
+        <button
+          class="top d-pad-btn"
+          ontouchstart="holdKey(event, 'holdUp')"
+          ontouchend="releaseKey(event, 'releaseUp')"
+        >
+          <span></span>
+        </button>
+        <button
+          class="bottom d-pad-btn"
+          ontouchstart="holdKey(event, 'holdDown')"
+          ontouchend="releaseKey(event, 'releaseDown')"
+        >
+          <span></span>
+        </button>
+      </div>
+      <div>
+        <button
+          class="top d-pad-btn"
+          ontouchstart="holdKey(event, 'holdLeft')"
+          ontouchend="releaseKey(event, 'releaseLeft')"
+        >
+          <span></span>
+        </button>
+        <button
+          class="bottom d-pad-btn"
+          ontouchstart="holdKey(event, 'holdRight')"
+          ontouchend="releaseKey(event, 'releaseRight')"
+        >
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="bottom-group">
+      <button
+        ontouchstart="holdKey(event, 'holdSelect')"
+        ontouchend="releaseKey(event, 'releaseSelect')"
+      >
+        SELECT</button
+      ><button
+        ontouchstart="holdKey(event, 'holdStart')"
+        ontouchend="releaseKey(event, 'releaseStart')"
+      >
+        START
+      </button>
+    </div>
 
     <script src="/main.js"></script>
     <!-- <script src="/new.js"></script> -->

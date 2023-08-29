@@ -32,9 +32,10 @@ button > span {
   grid-template-columns: repeat(3, 1fr);
   width: 200px;
   aspect-ratio: 1/1;
-  right: 20px;
-  bottom: 20px;
+  right: 40px;
+  bottom: 40px;
   border: none;
+  z-index: 20;
 }
 
 #face-buttons-container > button:nth-child(2),
@@ -145,27 +146,118 @@ button > span {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 160px;
+  width: 150px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   left: 40px;
   bottom: 40px;
   border: 1px solid black;
-  /* background-color: rgba(128, 128, 128); */
 }
 #stick {
   border: 3px solid black;
-  /* background-color: rgba(255, 255, 255, 0.555); */
   background-image: linear-gradient(45deg, transparent 95%, black 95%),
     linear-gradient(135deg, transparent 80%, black 80%);
   rotate: 20deg;
   background-size: 5px 5px;
-  width: 70%;
+  width: 65%;
   aspect-ratio: 1/1;
   border-radius: 50%;
   position: relative;
+  z-index: 20;
 }
 
 .stick-transition {
   transition: all 250ms ease;
+}
+
+#d-pad {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 180px;
+  top: 115px;
+  position: relative;
+  z-index: 10;
+  scale: 1.1;
+}
+
+#d-pad > div:nth-child(1) {
+  width: 40%;
+  height: 100%;
+  /* background-color: rgba(95, 158, 160, 0.699); */
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#d-pad > div:nth-child(2) {
+  height: 40%;
+  width: 100%;
+  /* background-color: rgba(255, 0, 0, 0.692); */
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d-pad-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background-color: black;
+  outline: none;
+  border: none;
+}
+
+#d-pad > div:nth-child(1) .d-pad-btn {
+  width: 40px;
+  height: 60px;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+
+#d-pad > div > button:nth-child(2) {
+  rotate: 180deg;
+}
+
+#d-pad > div:nth-child(2) .d-pad-btn {
+  width: 60px;
+  height: 40px;
+  clip-path: polygon(0 0, 70% 0, 100% 50%, 70% 100%, 0 100%);
+}
+
+.d-pad-btn span {
+  background-color: rgb(207, 207, 207);
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  scale: 0.93;
+  clip-path: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+#bottom-group {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  /* touch-action: none; */
+  z-index: 10;
+}
+#bottom-group button {
+  font-size: x-large;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  border: 3px solid black;
 }

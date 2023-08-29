@@ -5,7 +5,13 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const region = require("./Analog-stick.json");
-const { Key, mouse, Button, Point } = require("@nut-tree/nut-js");
+const {
+  Key,
+  mouse,
+  Button,
+  Point,
+  KeyboardClass,
+} = require("@nut-tree/nut-js");
 const path = require("path");
 const pressKey = require("./actions/pressKey");
 const holdKey = require("./actions/holdKey");
@@ -14,7 +20,6 @@ const centerPoint = new Point(
   region.left + region.width / 2,
   region.top + region.height / 2
 );
-
 io.on("connection", (socket) => {
   console.log("A user connected");
 
@@ -31,6 +36,12 @@ io.on("connection", (socket) => {
   socket.on("holdCircle", async (data) => holdKey(Key.X));
   socket.on("holdLeftTrigger", async (data) => holdKey(Key.Q));
   socket.on("holdRightTrigger", async (data) => holdKey(Key.W));
+  socket.on("holdUp", async (data) => holdKey(Key.Up));
+  socket.on("holdDown", async (data) => holdKey(Key.Down));
+  socket.on("holdLeft", async (data) => holdKey(Key.Left));
+  socket.on("holdRight", async (data) => holdKey(Key.Right));
+  socket.on("holdSelect", async (data) => holdKey(Key.Enter));
+  socket.on("holdStart", async (data) => holdKey(Key.Space));
 
   socket.on("releaseTriangle", async (data) => releaseKey(Key.S));
   socket.on("releaseSquare", async (data) => releaseKey(Key.A));
@@ -38,6 +49,12 @@ io.on("connection", (socket) => {
   socket.on("releaseCircle", async (data) => releaseKey(Key.X));
   socket.on("releaseLeftTrigger", async (data) => releaseKey(Key.Q));
   socket.on("releaseRightTrigger", async (data) => releaseKey(Key.W));
+  socket.on("releaseUp", async (data) => releaseKey(Key.Up));
+  socket.on("releaseDown", async (data) => releaseKey(Key.Down));
+  socket.on("releaseLeft", async (data) => releaseKey(Key.Left));
+  socket.on("releaseRight", async (data) => releaseKey(Key.Right));
+  socket.on("releaseSelect", async (data) => releaseKey(Key.Enter));
+  socket.on("releaseStart", async (data) => releaseKey(Key.Space));
 
   socket.on("log", ({ msg }) => console.log(msg));
   socket.on("holdClick", async (data) => {

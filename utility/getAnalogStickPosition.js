@@ -6,8 +6,8 @@ const fs = require("fs");
 async function getPosition() {
   await sleep(2000);
   screen.config.resourceDirectory = path.resolve("./images");
-  const dPadImage = await imageResource("ppsspp-analog-stick(gray).png");
-  const region = await screen.find(dPadImage, { confidence: 0.8 });
+  const dPadImage = await imageResource("analog-full-screen-default.png");
+  const region = await screen.find(dPadImage, { confidence: 0.3 });
   console.log(JSON.stringify(region));
   return region;
 }
